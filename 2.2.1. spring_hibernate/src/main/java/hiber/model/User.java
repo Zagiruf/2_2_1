@@ -1,5 +1,8 @@
 package hiber.model;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.event.spi.SaveOrUpdateEventListener;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,14 +13,18 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @Column(name = "name")
+   @Column
    private String firstName;
 
-   @Column(name = "last_name")
+   @Column
    private String lastName;
 
-   @Column(name = "email")
+   @Column
    private String email;
+
+   @OneToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "cars_id")
+   private Car car;
 
    public User() {}
    
@@ -57,5 +64,24 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   public Car getCar() {
+      return car;
+   }
+
+   public void setCar(Car car) {
+      this.car = car;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              ", car=" + car +
+              '}';
    }
 }
