@@ -23,7 +23,7 @@ public class UserServiceImp implements UserService {
 
    @Transactional
    @Override
-   public void hql(String model, int users){
+   public void hql(String model, int users) {
       userDao.hql(model, users);
    }
 

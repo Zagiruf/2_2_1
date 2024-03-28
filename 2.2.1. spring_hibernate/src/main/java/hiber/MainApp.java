@@ -22,7 +22,7 @@ public class MainApp {
 
 
       User user5 = new User("Zagir","Zaurov", "zag@mail.com");
-      User user6 = new User("Nail", "Alicov", "alic@mail.com");
+      User user6 = new User("Nail", "Alic", "alic@mail.com");
 
       Car car5 = new Car("vedro",1234);
       Car car6 = new Car("vedro2",4321);

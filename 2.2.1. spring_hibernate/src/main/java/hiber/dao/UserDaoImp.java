@@ -23,16 +23,12 @@ public class UserDaoImp implements UserDao {
    }
    @Override
    public void hql(String model, int series){
-      Query <User> us = sessionFactory.getCurrentSession().createQuery("FROM User user JOIN FETCH user.car car where car.model= : model AND car.series= : series", User.class);
+      Query<User> us = sessionFactory.getCurrentSession().createQuery("FROM User user JOIN FETCH user.car car where car.model= : model AND car.series= : series", User.class);
       us.setParameter("model", model);
       us.setParameter("series", series);
-      List <User> users = us.getResultList();
+      List<User> users = us.getResultList();
       System.out.println(users);
-
-
    }
-
-
 
    @Override
    @SuppressWarnings("unchecked")
