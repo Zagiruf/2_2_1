@@ -21,19 +21,19 @@ public class MainApp {
       userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
 
 
-      User user5 = new User("Zagir","Zaurov", "zag@mail.com");
-      User user6 = new User("Nail", "Alic", "alic@mail.com");
+      User user5 = new User("Zagir","Kul", "zag@mail.com");
+      User user6 = new User("Nail", "Ali", "ali@mail.com");
 
       Car car5 = new Car("vedro",1234);
+
       Car car6 = new Car("vedro2",4321);
 
       user5.setCar(car5);
-      user6.setCar(car6);
 
       userService.add(user5);
       userService.add(user6);
 
-      userService.hql("vedro", 1234);
+      userService.getUser("vedro", 1234);
 
       List<User> users = userService.listUsers();
       for (User user : users) {

@@ -8,6 +8,6 @@ import java.util.List;
 public interface UserService {
     void add(User user);
     List<User> listUsers();
-    public void hql(String model, int series);
+    public void getUser(String model, int series);
 }
 

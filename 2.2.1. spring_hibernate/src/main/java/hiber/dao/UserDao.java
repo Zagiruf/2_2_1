@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface UserDao {
    void add(User user);
-   void hql(String model, int series);
+   void getUser(String model, int series);
    List<User> listUsers();
 }

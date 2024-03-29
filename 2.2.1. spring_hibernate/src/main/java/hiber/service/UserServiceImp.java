@@ -11,9 +11,11 @@ import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
-
-   @Autowired
    private UserDao userDao;
+
+   public UserServiceImp(UserDao userDao){
+      this.userDao = userDao;
+   }
 
    @Transactional
    @Override
@@ -21,10 +23,10 @@ public class UserServiceImp implements UserService {
       userDao.add(user);
    }
 
-   @Transactional
+   @Transactional(readOnly = true)
    @Override
-   public void hql(String model, int users) {
-      userDao.hql(model, users);
+   public void getUser(String model, int users) {
+      userDao.getUser(model, users);
    }
 
 

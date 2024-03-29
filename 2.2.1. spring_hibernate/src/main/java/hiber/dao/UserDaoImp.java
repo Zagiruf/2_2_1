@@ -13,16 +13,19 @@ import java.util.List;
 
 @Repository
 public class UserDaoImp implements UserDao {
+  private SessionFactory sessionFactory;
 
-   @Autowired
-   private SessionFactory sessionFactory;
+   public UserDaoImp(SessionFactory sessionFactory){
+      this.sessionFactory = sessionFactory;
+   }
+
 
    @Override
    public void add(User user) {
       sessionFactory.getCurrentSession().save(user);
    }
    @Override
-   public void hql(String model, int series){
+   public void getUser(String model, int series) {
       Query<User> us = sessionFactory.getCurrentSession().createQuery("FROM User user JOIN FETCH user.car car where car.model= : model AND car.series= : series", User.class);
       us.setParameter("model", model);
       us.setParameter("series", series);
